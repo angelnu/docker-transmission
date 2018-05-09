@@ -1,4 +1,10 @@
-FROM lsiobase/alpine:3.7
+ARG BASE=ubuntu
+FROM $BASE
+
+ARG arch=arm
+ENV ARCH=$arch
+
+COPY qemu/qemu-$ARCH-static* /usr/bin/
 
 # set version label
 ARG BUILD_DATE
